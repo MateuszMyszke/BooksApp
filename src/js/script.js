@@ -1,15 +1,14 @@
 {
   ('use strict');
+
   const select = {
     templateOf: {
       book: '#template-book',
     },
-
     containerOf: {
       booksList: '.books-list',
       filters: '.filters',
     },
-
     book: {
       image: '.books-list .book__image',
     },
@@ -22,8 +21,13 @@
       document.querySelector(select.templateOf.book).innerHTML
     ),
   };
+
   const render = function () {
     for (const book of dataSource.books) {
+      const ratingBgc = determineRatingBgc(book.rating);
+      const ratingWidth = ratingBgc * 10;
+      book.ratingBgc = ratingBgc;
+      book.ratingWidth = ratingWidth;
       const generatedHTML = templates.books(book);
       const generateDOMElement = utils.createDOMFromHTML(generatedHTML);
       const booksContainer = document.querySelector(
@@ -32,7 +36,9 @@
       booksContainer.appendChild(generateDOMElement);
     }
   };
+
   const favoriteBooks = [];
+
   function initActions() {
     const bookList = document.querySelector(select.containerOf.booksList);
     bookList.addEventListener('dblclick', function (event) {
@@ -95,6 +101,21 @@
     }
   };
 
+  function determineRatingBgc(rating) {
+    let ratingBgc = '';
+    if (rating < 6) {
+      ratingBgc = 'linear-gradient(to bottom,  #fefcea 0%, #f1da36 100%';
+    } else if (rating > 6 && rating <= 8) {
+      ratingBgc = 'linear-gradient(to bottom, #b4df5b 0%,#b4df5b 100%';
+    } else if (rating > 8 && rating <= 9) {
+      ratingBgc = 'linear-gradient(to bottom, #299a0b 0%, #299a0b 100%';
+    } else if (rating > 9) {
+      ratingBgc = 'linear-gradient(to bottom, #ff0084 0%,#ff0084 100%';
+    }
+    return ratingBgc;
+  }
+
   render();
   initActions();
+  determineRatingBgc();
 }
