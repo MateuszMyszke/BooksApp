@@ -1,5 +1,6 @@
 {
   ('use strict');
+  
   const select = {
     templateOf: {
       book: '#template-book',
@@ -115,18 +116,18 @@
         console.log(selectImage);
       }
     }
-
+  
     determineRatingBgc(rating) {
       const thisBooksList = this;
       thisBooksList.ratingBgc = '';
-      if (rating < 6) {
-        thisBooksList.ratingBgc ='linear-gradient(to bottom,  #fefcea 0%, #f1da36 100%';
+      if (rating < 6) { //the numbers determine the ranking of the books
+        thisBooksList.ratingBgc ='linear-gradient(to bottom,  #fefcea 0%, #f1da36 100%'; //white-yellow color
       } else if (rating > 6 && rating <= 8) {
-        thisBooksList.ratingBgc ='linear-gradient(to bottom, #b4df5b 0%,#b4df5b 100%';
+        thisBooksList.ratingBgc ='linear-gradient(to bottom, #b4df5b 0%, #b4df5b 100%'; //light-green color
       } else if (rating > 8 && rating <= 9) {
-        thisBooksList.ratingBgc ='linear-gradient(to bottom, #299a0b 0%, #299a0b 100%';
+        thisBooksList.ratingBgc =`linear-gradient(to bottom, #299a0b 0%, #299a0b 100%`; //dark-green color
       } else if (rating > 9) {
-        thisBooksList.ratingBgc ='linear-gradient(to bottom, #ff0084 0%,#ff0084 100%';
+        thisBooksList.ratingBgc ='linear-gradient(to bottom, #ff0084 0%,#ff0084 100%'; //pink color
       }
       return thisBooksList.ratingBgc;
     }
