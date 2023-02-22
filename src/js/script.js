@@ -123,21 +123,21 @@
       const goodRating = 8;
       const amazingRating = 9; 
 
-      const light_green = '#b4df5b';
-      const white_color = '#fefcea';
-      const yellow_color = '#f1da36';
-      const dark_green = '#299a0b';
-      const pink_color = '#ff0084';
+      const lightGreen = '#b4df5b';
+      const whiteColor = '#fefcea';
+      const yellowColor = '#f1da36';
+      const darkGreen = '#299a0b';
+      const pinkColor = '#ff0084';
 
       thisBooksList.ratingBgc = '';
       if (rating < weakRating) { 
-        thisBooksList.ratingBgc =`linear-gradient(to bottom,  ${white_color} 0%, ${yellow_color} 100%`; 
+        thisBooksList.ratingBgc =`linear-gradient(to bottom,  ${whiteColor} 0%, ${yellowColor} 100%`; 
       } else if (rating > weakRating && rating <= goodRating) {
-        thisBooksList.ratingBgc =`linear-gradient(to bottom, ${light_green} 0%, ${light_green} 100%`; 
+        thisBooksList.ratingBgc =`linear-gradient(to bottom, ${lightGreen} 0%, ${lightGreen} 100%`; 
       } else if (rating > goodRating && rating <= amazingRating) {
-        thisBooksList.ratingBgc =`linear-gradient(to bottom, ${dark_green} 0%, ${dark_green} 100%`; 
+        thisBooksList.ratingBgc =`linear-gradient(to bottom, ${darkGreen} 0%, ${darkGreen} 100%`; 
       } else if (rating > amazingRating) {
-        thisBooksList.ratingBgc =`linear-gradient(to bottom, ${pink_color} 0%, ${pink_color} 100%`; 
+        thisBooksList.ratingBgc =`linear-gradient(to bottom, ${pinkColor} 0%, ${pinkColor} 100%`; 
       }
       return thisBooksList.ratingBgc;
     }
